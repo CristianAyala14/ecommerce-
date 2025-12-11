@@ -1,17 +1,21 @@
 header{
   background-color: var(--color1);
   padding-inline: 0.5rem;
-  height: 2.1rem;
+  height: 2.5rem;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--color3);
-  color: var(--color1)
+  color: var(--color1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
 }
 
 .logo{
-  max-width: 4rem;
+  max-width: 7rem;
 }
 
 .open-menu{
@@ -46,11 +50,7 @@ header{
   height: 100%;
 }
 
-.nav-options:hover {
-  color: var(--color1); /* cambia el color del texto */
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* efecto “brillo” */
-  transition: all 0.3s ease-in-out;
-}
+
 
 /* Los links también centrados */
 .nav-options {
@@ -63,7 +63,11 @@ header{
   gap: 0.2rem;
   color: var(--color1)
 }
-
+.nav-options:hover {
+  color: var(--color1); /* cambia el color del texto */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* efecto “brillo” */
+  transition: all 0.3s ease-in-out;
+}
 .close-menu{
   font-size: 1rem;
   display: none;
@@ -72,7 +76,7 @@ header{
 
 .cart-user{
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 .cart-user-icons{
   color: var(--color1);
@@ -85,7 +89,7 @@ header{
 
 .cart-count {
   position: absolute;
-  right: 3.2rem;
+  right: 5rem;
   top: 0.9rem;
   font-size: 0.4rem;         /* tamaño del número */
   background-color: var(--color4); /* opcional: fondo del contador */
@@ -93,7 +97,23 @@ header{
   border-radius: 50%;
   padding: 0.1rem 0.3rem;    /* hace un círculo o cápsula */
 }
+.login-button-container{
+  background-color: var(--color4);
+  border-radius: 1rem;
+  height: 70%;
+  width: 5rem;
+  gap: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-button-container a{
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 0.6rem;
+  color: var(--color1); /* opcional: fondo del contador */
 
+}
 
 
 
@@ -108,7 +128,7 @@ header{
     color: var(--color3)
   }
   .close-menu:hover {
-  color: var(--color1); /* cambia el color del texto */
+  color: var(--color4); /* cambia el color del texto */
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* efecto “brillo” */
   transition: all 0.3s ease-in-out;
   }
@@ -125,25 +145,29 @@ header{
   .nav-options{
       color: var(--color3)
   }
+  .nav-options:hover {
+    color: var(--color4); /* cambia el color del texto */
+  }
 
   .nav{
     position: absolute;
     top:  0.5rem;
     right: 0.5rem;
     width: 30vw;
-    height: auto;
+    height: 10rem;
     border-radius: 1rem;
     padding-block: 0.5rem;
     background-color: transparent; 
-    background-color: rgba(150, 117, 109, 0.8);
+    background-color: rgba(212, 218, 217, 0.8);
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     
   }
 
   .nav-list{
     padding: 0.3rem;
+    gap: .5rem;
     flex-direction: column;
     align-items: flex-start;
     height: 15vh;

@@ -1,6 +1,6 @@
 .home{
  background-color: var(--color3);
- border: 1px solid rgb(59, 106, 149);
  height: 50rem;
  width: 100vw;
+ padding: 3rem;
 }

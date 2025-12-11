@@ -3,16 +3,14 @@ import { useState } from 'react'
 import "./Header.css"
 import { Link, NavLink } from 'react-router-dom'
 import logo from "../../assets/logo.png"
-import { MdMenu, MdShop2, MdContacts, MdInfo, MdAccountCircle, MdClose , MdShoppingCart, MdLogout  } from "react-icons/md";
-
-
-
+import { MdMenu, MdShop2, MdContacts, MdInfo, MdAccountCircle, MdClose , MdShoppingCart, MdLogout, MdPerson    } from "react-icons/md";
 
 
 export default function Header() {
 
 
   const [open, setOpen] = useState(false);
+  const [logged, setLogged] = useState(false);
 
 
   return (
@@ -32,29 +30,36 @@ export default function Header() {
         </ul>
         <button className='close-menu'  onClick={() => setOpen(false)}><MdClose size="0.6em"/></button>
       </div>
-      
-      <div className='cart-user'>
-        <div className='cart-icon-wrapper'>
-          <NavLink className='cart-user-icons' to={"/cart"}>
-            <MdShoppingCart size="0.6em" />
-          </NavLink>
-          <span className='cart-count'>3</span>
+
+      {logged ? (
+        <div className='cart-user'>
+          <div className='cart-icon-wrapper'>
+            <NavLink className='cart-user-icons' to={"/cart"}>
+              <MdShoppingCart size="0.8em" />
+            </NavLink>
+            <span className='cart-count'>3</span>
+          </div>
+          <div>
+            <NavLink className='cart-user-icons' to={"/profile"}>
+              <MdAccountCircle size="0.8em"/>
+            </NavLink>
+          </div>
+          
+          <button className="logout-button">
+            <MdLogout size="0.8em" />
+          </button>
+          
         </div>
-        <div>
-          <NavLink className='cart-user-icons' to={"/profile"}>
-            <MdAccountCircle size="0.6em"/>
-          </NavLink>
+
+      ) : (
+        <div className='login-button-container'>
+          <MdPerson size="0.5em" />
+          <NavLink to={"/login"}>Login</NavLink>
         </div>
         
-        <button className="logout-button">
-          <MdLogout size="0.6em" />
-        </button>
-        
-      </div>
+      )}
       
-
-
-
+    
       
     </header>
   )
