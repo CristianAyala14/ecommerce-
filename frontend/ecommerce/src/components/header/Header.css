@@ -1,25 +1,152 @@
 header{
-  background-color: rgb(98, 97, 175);
-  height: 2.5rem;
+  background-color: var(--color1);
+  padding-inline: 0.5rem;
+  height: 2.1rem;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--color3);
+  color: var(--color1)
 }
 
 .logo{
-  max-width: 10%;
+  max-width: 4rem;
 }
 
 .open-menu{
   display: none;
 }
 
+.nav {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HACER QUE LA UL OCUPE TODO Y SE CENTRE */
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;   /* 👈 Centra los <li> */
+  width: 100%;               /* 👈 Que la ul ocupe todo el espacio dentro de nav */
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+/* LOS <li> CENTRADOS VERTICAL Y HORIZONTALMENTE */
+.nav-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.nav-options:hover {
+  color: var(--color1); /* cambia el color del texto */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* efecto “brillo” */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Los links también centrados */
+.nav-options {
+  text-decoration: none;
+  font-size: 0.6rem;
+  height: 100%;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  gap: 0.2rem;
+  color: var(--color1)
+}
+
+.close-menu{
+  font-size: 1rem;
+  display: none;
+
+}
+
+.cart-user{
+  display: flex;
+  gap: 0.5rem;
+}
+.cart-user-icons{
+  color: var(--color1);
+}
+
+.cart-icon-wrapper {
+  display: inline-flex;      /* pone icono y número en la misma línea */
+  align-items: center;       /* centra verticalmente el número con el icono */
+}
+
+.cart-count {
+  position: absolute;
+  right: 3.2rem;
+  top: 0.9rem;
+  font-size: 0.4rem;         /* tamaño del número */
+  background-color: var(--color4); /* opcional: fondo del contador */
+  color: white;
+  border-radius: 50%;
+  padding: 0.1rem 0.3rem;    /* hace un círculo o cápsula */
+}
+
+
 
 
 @media screen and (max-width: 700px) {
   .open-menu{
+    font-size: 1rem;
     display: block;
+    
+  }
+  .close-menu{
+    display: block;
+    color: var(--color3)
+  }
+  .close-menu:hover {
+  color: var(--color1); /* cambia el color del texto */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* efecto “brillo” */
+  transition: all 0.3s ease-in-out;
+  }
+  
+  .nav{
+      opacity: 0;
+      visibility: hidden;
+  } 
+  .nav.visible{
+      opacity: 1;
+      visibility: visible;
+  } 
+  
+  .nav-options{
+      color: var(--color3)
+  }
+
+  .nav{
+    position: absolute;
+    top:  0.5rem;
+    right: 0.5rem;
+    width: 30vw;
+    height: auto;
+    border-radius: 1rem;
+    padding-block: 0.5rem;
+    background-color: transparent; 
+    background-color: rgba(150, 117, 109, 0.8);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+  }
+
+  .nav-list{
+    padding: 0.3rem;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 15vh;
   }
 
 }

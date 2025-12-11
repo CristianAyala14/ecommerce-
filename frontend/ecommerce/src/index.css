@@ -8,6 +8,15 @@
   font-size: 1.65rem;
 
 }
+
+:root {
+  --color1: #e7beb7;
+  --color2: #d9ccba;
+  --color3: #123552;
+  --color4: #186a73;
+  --color5: #b3c4c0;
+}
+
 .linearGradient {
   background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
 }
@@ -28,3 +37,4 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
