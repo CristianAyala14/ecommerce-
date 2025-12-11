@@ -1,26 +1,35 @@
+/* ========================================================= */
+/* HEADER GENERAL */
+/* ========================================================= */
+
 header{
-  background-color: var(--color1);
+  background-color: var(--color3);
   padding-inline: 0.5rem;
-  height: 2.5rem;
   width: 100%;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--color3);
   color: var(--color1);
   position: sticky;
   top: 0;
-  z-index: 100;
-
+  z-index: 100; /* queda debajo del menú mobile */
 }
 
 .logo{
-  max-width: 7rem;
+  max-width: 5rem;
+  height: 100%;
+  object-fit: contain;
 }
 
 .open-menu{
   display: none;
 }
+
+
+/* ========================================================= */
+/* NAV DESKTOP */
+/* ========================================================= */
 
 .nav {
   height: 100%;
@@ -30,19 +39,16 @@ header{
   justify-content: center;
 }
 
-/* HACER QUE LA UL OCUPE TODO Y SE CENTRE */
 .nav-list {
   display: flex;
   align-items: center;
-  justify-content: space-around;   /* 👈 Centra los <li> */
-  width: 100%;               /* 👈 Que la ul ocupe todo el espacio dentro de nav */
-  height: 100%;
+  justify-content: space-around;
+  width: 100%;
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
-/* LOS <li> CENTRADOS VERTICAL Y HORIZONTALMENTE */
 .nav-list li {
   display: flex;
   align-items: center;
@@ -50,127 +56,155 @@ header{
   height: 100%;
 }
 
-
-
-/* Los links también centrados */
 .nav-options {
   text-decoration: none;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   height: 100%;
   display: flex;
   align-items: center; 
   justify-content: center;
   gap: 0.2rem;
-  color: var(--color1)
-}
-.nav-options:hover {
-  color: var(--color1); /* cambia el color del texto */
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* efecto “brillo” */
-  transition: all 0.3s ease-in-out;
-}
-.close-menu{
-  font-size: 1rem;
-  display: none;
-
-}
-
-.cart-user{
-  display: flex;
-  gap: 1rem;
-}
-.cart-user-icons{
   color: var(--color1);
 }
 
+.nav-options:hover {
+  color: var(--color1);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.close-menu{
+  font-size: 1rem;
+  display: none;
+}
+
+
+/* ========================================================= */
+/* CART + USER */
+/* ========================================================= */
+
+.cart-user{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cart-user-icons{
+  color: var(--color1);
+  font-size: 1rem;
+}
+
 .cart-icon-wrapper {
-  display: inline-flex;      /* pone icono y número en la misma línea */
-  align-items: center;       /* centra verticalmente el número con el icono */
+  display: inline-flex;
+  align-items: center;
+  position: relative;
 }
 
 .cart-count {
   position: absolute;
-  right: 5rem;
-  top: 0.9rem;
-  font-size: 0.4rem;         /* tamaño del número */
-  background-color: var(--color4); /* opcional: fondo del contador */
+  right: -0.2rem;
+  top: -0.3rem;
+  font-size: 0.35rem;
+  background-color: var(--color4);
   color: white;
   border-radius: 50%;
-  padding: 0.1rem 0.3rem;    /* hace un círculo o cápsula */
+  padding: 0.1rem 0.25rem;
 }
-.login-button-container{
+
+
+/* ========================================================= */
+/* LOGIN BUTTON */
+/* ========================================================= */
+
+.login-button-container {
   background-color: var(--color4);
   border-radius: 1rem;
-  height: 70%;
-  width: 5rem;
-  gap: 0.2rem;
+  padding: 0 0.5rem;
   display: flex;
+  gap: 0.2rem;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
+  height: 70%;
 }
+
 .login-button-container a{
   text-decoration: none;
   font-weight: bolder;
-  font-size: 0.6rem;
-  color: var(--color1); /* opcional: fondo del contador */
-
+  font-size: 0.55rem;
+  color: var(--color1);
+  margin: 0;
 }
 
 
+/* ========================================================= */
+/* MOBILE */
+/* ========================================================= */
 
 @media screen and (max-width: 700px) {
+
   .open-menu{
-    font-size: 1rem;
+    font-size: 1.3rem;
     display: block;
-    
-  }
-  .close-menu{
-    display: block;
-    color: var(--color3)
-  }
-  .close-menu:hover {
-  color: var(--color4); /* cambia el color del texto */
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* efecto “brillo” */
-  transition: all 0.3s ease-in-out;
-  }
-  
-  .nav{
-      opacity: 0;
-      visibility: hidden;
-  } 
-  .nav.visible{
-      opacity: 1;
-      visibility: visible;
-  } 
-  
-  .nav-options{
-      color: var(--color3)
-  }
-  .nav-options:hover {
-    color: var(--color4); /* cambia el color del texto */
+    z-index: 99999; /* por encima también */
   }
 
+  .close-menu{
+    display: block;
+    color: var(--color3);
+    z-index: 100000;
+  }
+
+  .close-menu:hover {
+    color: var(--color4);
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+  }
+
+  /* NAV OCULTA */
   .nav{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    /* posición móvil */
     position: absolute;
-    top:  0.5rem;
-    right: 0.5rem;
-    width: 30vw;
-    height: 10rem;
+    top: 2.5rem; 
+    right: 0;
+    width: 10rem;
+    height: auto;
+    padding: 1rem;
     border-radius: 1rem;
-    padding-block: 0.5rem;
-    background-color: transparent; 
-    background-color: rgba(212, 218, 217, 0.8);
+
+    background-color: rgba(212, 218, 217, 0.95);
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    
+    gap: 1rem;
+    justify-content: flex-start;
+
+    /* 🔥 SOBRE TODO */
+    z-index: 9999 !important;
+  }
+
+  /* NAV VISIBLE */
+  .nav.visible{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 9999 !important;
   }
 
   .nav-list{
     padding: 0.3rem;
-    gap: .5rem;
+    gap: .8rem;
     flex-direction: column;
-    align-items: flex-start;
-    height: 15vh;
+    width: 100%;
   }
 
+  .nav-options{
+    color: var(--color3);
+    font-size: 0.75rem;
+  }
+
+  .nav-options:hover {
+    color: var(--color4);
+  }
 }
