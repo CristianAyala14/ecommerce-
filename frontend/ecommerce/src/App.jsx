@@ -8,6 +8,7 @@ import Cart from "./pages/cart/Cart"
 import LogIn from "./pages/login/LogIn"
 import Footer from "./components/footer/Footer"
 import Profile from "./pages/profile/Profile"
+import Product from "./components/product/Product"
 function App() {
 
   return (
@@ -17,8 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/products" element={<Products/>}/>
-            <Route path=":productId" element={<Products/>}>
-          </Route>
+          <Route path="/products/:productId" element={<Product/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/cart" element={<Cart/>}/>

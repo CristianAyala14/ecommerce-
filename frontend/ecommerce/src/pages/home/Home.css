@@ -1,6 +1,7 @@
 .home{
  background-color: var(--color3);
- height: 50rem;
- width: 100vw;
- padding: 3rem;
+ height: auto;
+ width: 100%;
+ padding: 1.5rem;
+ padding-top: 4rem;
 }

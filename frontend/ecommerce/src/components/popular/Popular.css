@@ -1,0 +1,92 @@
+/* Contenedor general */
+.popular-container {
+  border: 1px solid rgb(30, 156, 165);
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 1rem;
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.popular-title {
+  font-size: 1.3rem;
+   font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: auto;
+  color: var(--color2);
+}
+
+.popular-text {
+  color: var(--color5);
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* CARRUSEL */
+.carousel {
+  padding-top: 0.5rem ;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 70%;
+}
+
+/* Flechas */
+.arrow {
+  background-color: var(--color4);
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  padding: 0.3rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 10;
+  transition: transform 0.2s;
+  color: var(--color1);
+}
+
+.arrow:hover {
+  transform: scale(1.1);
+}
+
+.arrow.left {
+  margin-right: 0.5rem;
+}
+
+.arrow.right {
+  margin-left: 0.5rem;
+}
+
+/* Ventana del carrusel */
+.carousel-window {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Track (elemento que se desplaza) */
+.carousel-track {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+}
+
+/* Ocultar scrollbar */
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
