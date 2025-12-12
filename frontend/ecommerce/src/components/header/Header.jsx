@@ -10,7 +10,7 @@ export default function Header() {
 
 
   const [open, setOpen] = useState(false);
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState(true);
 
 
   return (

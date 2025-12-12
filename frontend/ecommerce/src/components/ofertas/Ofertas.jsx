@@ -1,10 +1,10 @@
 import React, { useRef } from 'react'
-import "./Popular.css"
+import "./Ofertas.css"
 import Item from '../item/Item'
-import { POPULAR } from '../../assets/popularProductsMockUp'
+import { OFERTAS } from '../../assets/ofertasProductsMockUp'
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
-export default function Popular() {
+export default function Ofertas() {
 
   const trackRef = useRef(null);
 
@@ -18,10 +18,10 @@ export default function Popular() {
 
   return (
     
-    <section className='popular-container'>
+    <section className='ofertas-container'>
 
-        <h3 className='popular-title'>Popular Products</h3>
-        <p className='popular-text'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe qui perferendis assumenda sequi aut eum autem, libero numquam quam vero doloremque nisi aliquid veniam, rem ipsum corporis, velit tenetur a.</p>
+        <h3 className='ofertas-title'>Ofertas</h3>
+        <p className='ofertas-text'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe qui perferendis assumenda sequi aut eum autem, libero numquam quam vero doloremque nisi aliquid veniam, rem ipsum corporis, velit tenetur a.</p>
 
         <div className="carousel">
 
@@ -31,7 +31,7 @@ export default function Popular() {
 
           <div className="carousel-window">
             <div className="carousel-track" ref={trackRef}>
-              {POPULAR.map(item =>
+              {OFERTAS.map(item =>
                 <Item 
                   key={item.id}
                   id={item.id}

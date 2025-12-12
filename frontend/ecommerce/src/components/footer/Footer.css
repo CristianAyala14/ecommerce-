@@ -9,7 +9,7 @@ footer {
   justify-content: space-between;
   gap: 1rem;
   font-size: 0.7rem; /* base para todo el footer */
-  padding-top: 1rem;
+  padding-top: 4rem;
 }
 
 .footer-container {

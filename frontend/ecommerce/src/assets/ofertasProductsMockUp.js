@@ -1,6 +1,6 @@
 import imgP from "../assets/product.jpg"
 
-export const POPULAR = [
+export const OFERTAS = [
   {
     id: 1,
     name: "Striped Flutter Peplum Hem Blouse",

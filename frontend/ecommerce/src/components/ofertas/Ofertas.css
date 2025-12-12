@@ -1,0 +1,151 @@
+/* Contenedor general */
+.ofertas-container {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ofertas-title {
+  font-size: 1.3rem;
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: auto;
+  color: var(--color2);
+}
+
+.ofertas-text {
+  color: var(--color5);
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* CARRUSEL */
+.carousel {
+  padding-top: 2 rem ;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Flechas */
+.arrow {
+  background-color: var(--color1);
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 10;
+  transition: transform 0.2s;
+  color: var(--color3);
+}
+
+.arrow:hover {
+  transform: scale(1.1);
+}
+
+.arrow.left {
+  margin-right: 1rem;
+}
+
+.arrow.right {
+  margin-left: 2rem;
+}
+
+/* Ventana del carrusel */
+.carousel-window {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Track (elemento que se desplaza) */
+.carousel-track {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+
+  /* Para que las cards no se rompan en responsive */
+  scroll-snap-type: x mandatory;
+}
+
+/* Ocultar scrollbar */
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+/* ——————————————————————————————
+   📱📱📱 RESPONSIVE
+   —————————————————————————————— */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+
+  .carousel {
+    width: 90%;
+  }
+
+  .carousel-track {
+    gap: 1rem;
+  }
+
+  /* Forzar que cada card ocupe casi todo el ancho visible */
+  .carousel-track > * {
+    flex: 0 0 60%;
+    scroll-snap-align: center;
+  }
+}
+
+/* Tablets pequeñas / móviles horizontales (≤ 768px) */
+@media (max-width: 768px) {
+
+  .carousel {
+    width: 95%;
+  }
+
+  .carousel-track > * {
+    flex: 0 0 70%;
+  }
+
+  .arrow {
+    font-size: 2rem;
+    padding: 0.2rem;
+  }
+}
+
+/* Móviles (≤ 480px) */
+@media (max-width: 480px) {
+
+  .carousel {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 🔥 Aquí logramos que se vea solo 1 carta */
+  .carousel-track > * {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+
+  .arrow {
+    font-size: 1.8rem;
+    padding: 0.2rem;
+  }
+}
