@@ -1,20 +1,26 @@
 import React from 'react'
 import { useState } from 'react'
 import "./Header.css"
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate  } from 'react-router-dom'
 import logo from "../../assets/logo.png"
-import { MdMenu, MdShop2, MdContacts, MdInfo, MdAccountCircle, MdClose , MdShoppingCart, MdLogout, MdPerson    } from "react-icons/md";
-
+import { MdMenu, MdShop2, MdContacts, MdInfo, MdAccountCircle, MdClose , MdShoppingCart, MdLogout, MdPerson } from "react-icons/md";
 
 export default function Header() {
 
-
   const [open, setOpen] = useState(false);
-  const [logged, setLogged] = useState(true);
+  const [logged, setLogged] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const categorias = ["Tecnología", "Moda", "Comida", "Perros", "Bazar"];
+  const navigate = useNavigate();
 
+  const handleCategoryClick = (categoria) => {
+    navigate(`/products?category=${encodeURIComponent(categoria)}`);
+    setDropdownOpen(false);
+    setOpen(false); // opcional: cierra menú mobile
+  };
 
   return (
-    <header>
+    <header className="header">
       <Link to={"/"}><img className="logo" src={logo} alt=""/></Link>
       
       {!open && (
@@ -23,13 +29,31 @@ export default function Header() {
       
       <div className={`nav ${open ? "visible" : ""}`}>
         <ul className='nav-list'>
-          <li><NavLink className='nav-options' to={"/products"}><MdShop2 size="0.4em"/>Productos</NavLink></li>
+  
+          <li 
+            className='nav-options-wrapper'
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}>
+            <NavLink className='nav-options' to={"/products"}><MdShop2 size="0.4em"/>Productos</NavLink> 
+            {dropdownOpen && (
+              <div className='header-dropdown'>
+                {categorias.map((cat, idx) => (
+                  <div key={idx} className="dropdown-item" onClick={() => handleCategoryClick(cat)}>
+                    {cat}
+                  </div>
+                ))}
+              </div>
+            )}
+          </li>
+          
+
           <li><NavLink className='nav-options' to={"/about"}><MdInfo size="0.4em"/>Sobre nosotros</NavLink></li>
           <li><NavLink className='nav-options' to={"/contact"}><MdContacts size="0.4em"/>Contactanos</NavLink></li>
-
         </ul>
-        <button className='close-menu'  onClick={() => setOpen(false)}><MdClose size="0.6em"/></button>
+        <button className='close-menu' onClick={() => setOpen(false)}><MdClose size="0.6em"/></button>
       </div>
+
+      
 
       {logged ? (
         <div className='cart-user'>
@@ -48,19 +72,13 @@ export default function Header() {
           <button className="logout-button">
             <MdLogout size="0.8em" />
           </button>
-          
         </div>
-
       ) : (
         <div className='login-button-container'>
           <MdPerson size="0.5em" />
           <NavLink to={"/login"}>Login</NavLink>
         </div>
-        
       )}
-      
-    
-      
     </header>
   )
 }

@@ -109,11 +109,11 @@
 
 .hero-glow {
   position: absolute;
-  top: 50%;
+  top: 80%;
   left: 50%;
   width: clamp(20rem, 35vw, 35rem);
   height: clamp(150px, 20vw, 250px);
-  background: radial-gradient(circle, rgba(50, 255, 101, 0.45) 0%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, rgba(51, 248, 100, 0.45) 0%, rgba(255,255,255,0) 70%);
   border-radius: 60%;
   transform: translate(-50%, -50%);
   z-index: 1;
