@@ -330,5 +330,325 @@ export const all_products = [
     image: imgP,
     new_price: 10.90,
     old_price: 17.90
-  }
+  },
+  {
+    id: 41,
+    name: "Wireless Gaming Keyboard",
+    category: "Tecnología",
+    image: imgP,
+    new_price: 79.99,
+    old_price: 119.99
+},
+{
+    id: 42,
+    name: "LED Monitor 24 inch",
+    category: "Tecnología",
+    image: imgP,
+    new_price: 129.99,
+    old_price: 189.00
+},
+{
+    id: 43,
+    name: "Smartwatch Fitness Tracker",
+    category: "Tecnología",
+    image: imgP,
+    new_price: 59.90,
+    old_price: 89.90
+},
+{
+    id: 44,
+    name: "Noise Cancelling Earbuds",
+    category: "Tecnología",
+    image: imgP,
+    new_price: 49.99,
+    old_price: 79.90
+},
+{
+    id: 45,
+    name: "Foldable Laptop Stand",
+    category: "Tecnología",
+    image: imgP,
+    new_price: 25.50,
+    old_price: 39.90
+},
+{
+    id: 46,
+    name: "Slim Fit Polo Shirt",
+    category: "Moda",
+    image: imgP,
+    new_price: 29.99,
+    old_price: 49.90
+},
+{
+    id: 47,
+    name: "Classic Leather Belt",
+    category: "Moda",
+    image: imgP,
+    new_price: 19.50,
+    old_price: 34.90
+},
+{
+    id: 48,
+    name: "Summer Linen Shorts",
+    category: "Moda",
+    image: imgP,
+    new_price: 24.90,
+    old_price: 39.90
+},
+{
+    id: 49,
+    name: "Wool Knit Scarf",
+    category: "Moda",
+    image: imgP,
+    new_price: 14.90,
+    old_price: 24.90
+},
+{
+    id: 50,
+    name: "Casual Sneakers",
+    category: "Moda",
+    image: imgP,
+    new_price: 49.99,
+    old_price: 79.90
+},
+{
+    id: 51,
+    name: "Organic Almonds Pack",
+    category: "Comida",
+    image: imgP,
+    new_price: 12.50,
+    old_price: 19.90
+},
+{
+    id: 52,
+    name: "Gluten Free Cookies",
+    category: "Comida",
+    image: imgP,
+    new_price: 8.99,
+    old_price: 14.50
+},
+{
+    id: 53,
+    name: "Premium Herbal Tea",
+    category: "Comida",
+    image: imgP,
+    new_price: 9.50,
+    old_price: 15.90
+},
+{
+    id: 54,
+    name: "Organic Maple Syrup",
+    category: "Comida",
+    image: imgP,
+    new_price: 14.90,
+    old_price: 24.90
+},
+{
+    id: 55,
+    name: "Gourmet Spice Set",
+    category: "Comida",
+    image: imgP,
+    new_price: 22.00,
+    old_price: 32.50
+},
+{
+    id: 56,
+    name: "Dog Chew Bone Pack",
+    category: "Perros",
+    image: imgP,
+    new_price: 9.90,
+    old_price: 15.50
+},
+{
+    id: 57,
+    name: "Pet Water Fountain",
+    category: "Perros",
+    image: imgP,
+    new_price: 34.90,
+    old_price: 54.90
+},
+{
+    id: 58,
+    name: "Dog Treats Variety Pack",
+    category: "Perros",
+    image: imgP,
+    new_price: 12.50,
+    old_price: 19.90
+},
+{
+    id: 59,
+    name: "Comfort Pet Carrier",
+    category: "Perros",
+    image: imgP,
+    new_price: 44.90,
+    old_price: 69.90
+},
+{
+    id: 60,
+    name: "Adjustable Pet Collar",
+    category: "Perros",
+    image: imgP,
+    new_price: 8.99,
+    old_price: 14.50
+},
+{
+    id: 61,
+    name: "Decorative Wall Art",
+    category: "Bazar",
+    image: imgP,
+    new_price: 39.99,
+    old_price: 59.90
+},
+{
+    id: 62,
+    name: "Scented Diffuser Set",
+    category: "Bazar",
+    image: imgP,
+    new_price: 24.50,
+    old_price: 39.90
+},
+{
+    id: 63,
+    name: "Modern Desk Organizer",
+    category: "Bazar",
+    image: imgP,
+    new_price: 29.90,
+    old_price: 49.90
+},
+{
+    id: 64,
+    name: "Ceramic Plant Pot",
+    category: "Bazar",
+    image: imgP,
+    new_price: 19.99,
+    old_price: 34.90
+},
+{
+    id: 65,
+    name: "LED Night Lamp",
+    category: "Bazar",
+    image: imgP,
+    new_price: 22.50,
+    old_price: 39.90
+},
+{
+    id: 66,
+    name: "Bluetooth Headset",
+    category: "Tecnología",
+    image: imgP,
+    new_price: 34.99,
+    old_price: 59.90
+},
+{
+    id: 67,
+    name: "Portable SSD Drive 500GB",
+    category: "Tecnología",
+    image: imgP,
+    new_price: 79.99,
+    old_price: 129.90
+},
+{
+    id: 68,
+    name: "Smart Home Sensor Kit",
+    category: "Tecnología",
+    image: imgP,
+    new_price: 49.99,
+    old_price: 79.90
+},
+{
+    id: 69,
+    name: "Wireless Charging Pad",
+    category: "Tecnología",
+    image: imgP,
+    new_price: 29.50,
+    old_price: 49.90
+},
+{
+    id: 70,
+    name: "Ergonomic Laptop Stand",
+    category: "Tecnología",
+    image: imgP,
+    new_price: 24.90,
+    old_price: 39.90
+},
+{
+    id: 71,
+    name: "V-neck Sweater",
+    category: "Moda",
+    image: imgP,
+    new_price: 34.50,
+    old_price: 59.90
+},
+{
+    id: 72,
+    name: "Leather Wallet",
+    category: "Moda",
+    image: imgP,
+    new_price: 29.90,
+    old_price: 49.90
+},
+{
+    id: 73,
+    name: "Denim Jacket",
+    category: "Moda",
+    image: imgP,
+    new_price: 69.90,
+    old_price: 99.90
+},
+{
+    id: 74,
+    name: "Cotton Hoodie",
+    category: "Moda",
+    image: imgP,
+    new_price: 44.50,
+    old_price: 74.90
+},
+{
+    id: 75,
+    name: "Sports Running Shoes",
+    category: "Moda",
+    image: imgP,
+    new_price: 59.90,
+    old_price: 89.90
+},
+{
+    id: 76,
+    name: "Organic Granola Pack",
+    category: "Comida",
+    image: imgP,
+    new_price: 11.50,
+    old_price: 18.90
+},
+{
+    id: 77,
+    name: "Vegan Protein Bars",
+    category: "Comida",
+    image: imgP,
+    new_price: 15.90,
+    old_price: 24.90
+},
+{
+    id: 78,
+    name: "Herbal Infusion Tea Set",
+    category: "Comida",
+    image: imgP,
+    new_price: 12.50,
+    old_price: 19.90
+},
+{
+    id: 79,
+    name: "Organic Coconut Oil",
+    category: "Comida",
+    image: imgP,
+    new_price: 18.90,
+    old_price: 29.90
+},
+{
+    id: 80,
+    name: "Gourmet Cheese Pack",
+    category: "Comida",
+    image: imgP,
+    new_price: 21.50,
+    old_price: 34.90
+}
 ];
