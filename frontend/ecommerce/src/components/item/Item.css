@@ -2,7 +2,7 @@
 .item-card {
   flex: 0 0 auto;          /* 🔥 evita que la card se achique en el carrusel */
   width: 9rem; 
-  height: 12rem;           /* tamaño estándar */
+  height: 12rem;   
   background-color: rgba(218, 46, 46, 0.06);
   border-radius: 10px;
   overflow: hidden;
