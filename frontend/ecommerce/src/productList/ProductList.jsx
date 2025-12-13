@@ -5,11 +5,10 @@ import Item from "../components/item/Item";
 import { all_products } from "../assets/productListProductsMockUp";
 import banner from "../assets/nuevosIngresos1.jpeg";
 import { useLocation, useNavigate } from "react-router-dom";
+import { getAllProductsReq } from "../apiCalls/productsCalls";
 
 export default function ProductList({ category }) {
-
-    const categorias = ["Tecnología", "Moda", "Comida", "Perros", "Bazar"];
-
+  const categorias = ["Tecnología", "Moda", "Comida", "Perros", "Bazar"];
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -19,10 +18,10 @@ export default function ProductList({ category }) {
   const [page, setPage] = useState(1);
   const limit = 10;
 
-
   const [filters, setFilters] = useState({
     sort: "createdAt",
     order: "desc",
+    category: ""
   });
 
   useEffect(() => {
@@ -31,54 +30,56 @@ export default function ProductList({ category }) {
 
   // Sincronizar filtros con URL
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const sort = params.get("sort") || "createdAt";
-    const order = params.get("order") || "desc";
-    setFilters({ sort, order });
+    const urlParams = new URLSearchParams(location.search);
+    const sortFromUrl = urlParams.get("sort") || "createdAt";
+    const orderFromUrl  = urlParams.get("order") || "desc";
+    const categoryFromUrl  = urlParams.get("category") || "";
+
+    if(
+      sortFromUrl  || orderFromUrl  || categoryFromUrl
+    ){
+      setFilters({ sort: sortFromUrl, order:orderFromUrl , category: categoryFromUrl });
+    }
+
+
+
+    const fetchProducts = async()=>{
+      setLoading(true);
+      try {
+            const searchQuery = urlParams.toString();
+                console.log(searchQuery)
+
+            const res = await getAllProductsReq(searchQuery)
+            console.log(res)
+              
+      } catch (error) {
+        console.log(res)
+      }
+    }
+    fetchProducts();
+
   }, [location.search]);
 
-  // Filtrar, ordenar y paginar
-  useEffect(() => {
-    setLoading(true);
+  
 
-    let result = category
-      ? all_products.filter(item => item.category === category)
-      : all_products;
-
-    // Ordenar
-    result = [...result].sort((a, b) => {
-      if (filters.sort === "regularPrice") {
-        return filters.order === "asc"
-          ? a.new_price - b.new_price
-          : b.new_price - a.new_price;
-      }
-      return filters.order === "asc"
-        ? new Date(a.createdAt) - new Date(b.createdAt)
-        : new Date(b.createdAt) - new Date(a.createdAt);
-    });
-
-    // Paginar
-    const start = (page - 1) * limit;
-    const end = start + limit;
-    setProducts(result.slice(start, end));
-
-    setLoading(false);
-  }, [category, filters, page]);
-
-
-
-
-
-  // Manejar cambio de filtro
-  const handleFilterChange = (e) => {
-    const [sort, order] = e.target.value.split("_");
-    setFilters({ sort, order });
-
+  // Manejar cambio de filtro o categoría
+  const handleFilterChange = (type, value) => {
     const params = new URLSearchParams(location.search);
-    params.set("sort", sort);
-    params.set("order", order);
+
+    if (type === "sort") {
+      const [sort, order] = value.split("_");
+      setFilters(prev => ({ ...prev, sort, order })); // ✅ conserva category
+      params.set("sort", sort);
+      params.set("order", order);
+    }
+
+    if (type === "category") {
+      params.set("category", value);
+      setFilters(prevFilters => ({ ...prevFilters, category: value }));
+    }
+
     navigate(`?${params.toString()}`);
-    setPage(1); // reset page al cambiar filtro
+    setPage(1); // resetear paginación
   };
 
   // Manejar paginación
@@ -101,18 +102,13 @@ export default function ProductList({ category }) {
         Mostrando {products.length} de{" "}
         {category ? all_products.filter(item => item.category === category).length : all_products.length} productos
 
-
         <div className="productList-filter">
           <div>
             <label>Categoria:</label>
             <select
-            className="productList-filter-select"
+              className="productList-filter-select"
               value={category || ""}
-              onChange={(e) => {
-                const params = new URLSearchParams(location.search);
-                params.set("category", e.target.value); // actualizar URL
-                navigate(`?${params.toString()}`);
-              }}
+              onChange={(e) => handleFilterChange("category", e.target.value)}
             >
               <option value="">All</option>
               {categorias.map((cat, idx) => (
@@ -126,7 +122,7 @@ export default function ProductList({ category }) {
             <select
               className="productList-filter-select"
               value={`${filters.sort}_${filters.order}`}
-              onChange={handleFilterChange}
+              onChange={(e) => handleFilterChange("sort", e.target.value)}
             >
               <option value="regularPrice_desc">Price high to low</option>
               <option value="regularPrice_asc">Price low to high</option>
@@ -134,8 +130,6 @@ export default function ProductList({ category }) {
               <option value="createdAt_asc">Oldest</option>
             </select>  
           </div>
-          
-          
         </div>
       </div>
 
